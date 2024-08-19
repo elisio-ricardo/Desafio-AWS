@@ -8,9 +8,11 @@ public interface LivroDBPortOut {
 
     List<Livro> getAllLivros();
 
+    Livro getById(Long id);
+
     Livro saveLivro(Livro livro);
 
-    Livro updateLivro(Livro livro);
+    Livro updateLivro(Long id, Livro livro);
 
     void deleteLivro(Long id);
 }
