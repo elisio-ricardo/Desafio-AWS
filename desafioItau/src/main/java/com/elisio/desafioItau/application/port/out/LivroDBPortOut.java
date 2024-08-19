@@ -1,18 +1,18 @@
 package com.elisio.desafioItau.application.port.out;
 
-import com.elisio.desafioItau.domain.Livro;
+import com.elisio.desafioItau.domain.Book;
 
 import java.util.List;
 
 public interface LivroDBPortOut {
 
-    List<Livro> getAllLivros();
+    List<Book> getAllBooks();
 
-    Livro getById(Long id);
+    Book getBookById(Long id);
 
-    Livro saveLivro(Livro livro);
+    Book saveBook(Book book);
 
-    Livro updateLivro(Long id, Livro livro);
+    Book updateBook(Long id, Book book);
 
-    void deleteLivro(Long id);
+    void deleteBook(Long id);
 }
