@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: desafioItau
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_desafio_itau
+    username: springuser
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  cloud:
+    config:
+      enabled: false
+
+    aws:
+      credentials:
+        access-key: ${AWS_ACCESS_KEY:localstack}
+        secret-key: ${AWS_SECRET_KEY:localstack}
+      region:
+        static: ${AWS_REGION:us-east-1}
+      endpoint: http://localhost:4566
+      events:
+        topic: notification-topic
+        queue: notification-queue
+      s3:
+        endpoint: http://s3.localhost.localstack.cloud:4566/
+
+server:
+  port: 8081
+
+# JPA RDS Configuration
+# Uncomment and configure these lines if using AWS RDS
+# spring:
+#   datasource:
+#     url: # put your AWS RDS URL here
+#     driverClassName: com.mysql.cj.jdbc.Driver
+#     username: ${dbUser}
+#     password: ${dbPass}

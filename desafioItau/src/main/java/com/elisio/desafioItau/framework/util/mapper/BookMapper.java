@@ -10,7 +10,7 @@ public class BookMapper {
         return Book
                 .builder()
                 .autor(bookRequestDTO.autor())
-                .titulo(bookRequestDTO.autor())
+                .titulo(bookRequestDTO.titulo())
                 .qtdPaginas(bookRequestDTO.qtdPaginas())
                 .preco(bookRequestDTO.preco())
                 .build();

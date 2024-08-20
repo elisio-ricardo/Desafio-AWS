@@ -1,55 +1,55 @@
 package com.elisio.desafioItau.framework.adapter.out;
 
-import com.elisio.desafioItau.application.port.out.LivroDBPortOut;
+import com.elisio.desafioItau.application.port.out.BookDBPortOut;
 import com.elisio.desafioItau.domain.Book;
-import com.elisio.desafioItau.framework.adapter.out.persistence.LivroRepository;
-import com.elisio.desafioItau.framework.exceptions.LivroException;
+import com.elisio.desafioItau.framework.adapter.out.persistence.BookRepository;
+import com.elisio.desafioItau.framework.exceptions.BookException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 
 @Component
-public class BookDbPortOutImpl implements LivroDBPortOut {
+public class BookDbPortOutImpl implements BookDBPortOut {
 
-    private final LivroRepository livroRepository;
+    private final BookRepository bookRepository;
 
-    public BookDbPortOutImpl(LivroRepository livroRepository) {
-        this.livroRepository = livroRepository;
+    public BookDbPortOutImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
 
     @Override
     public List<Book> getAllBooks() {
-        return livroRepository.findAll();
+        return bookRepository.findAll();
     }
 
     @Override
     public Book getBookById(Long id) {
-        return livroRepository.findById(id).orElseThrow(() -> new LivroException("Book not founded " + id));
+        return bookRepository.findById(id).orElseThrow(() -> new BookException("Book not founded " + id));
     }
 
     @Override
     public Book saveBook(Book book) {
-        return livroRepository.save(book);
+        return bookRepository.save(book);
     }
 
     @Override
     public Book updateBook(Long id, Book book) {
-        if (!livroRepository.existsById(id)) {
-            throw new LivroException("Book not founded to update: " + id);
+        if (!bookRepository.existsById(id)) {
+            throw new BookException("Book not founded to update: " + id);
         }
 
         book.setId(id);
-        return livroRepository.save(book);
+        return bookRepository.save(book);
     }
 
     @Override
     public void deleteBook(Long id) {
-        if (!livroRepository.existsById(id)) {
-            throw new LivroException("Book not founded to update: " + id);
+        if (!bookRepository.existsById(id)) {
+            throw new BookException("Book not founded to update: " + id);
         }
 
-        livroRepository.deleteById(id);
+        bookRepository.deleteById(id);
     }
 }

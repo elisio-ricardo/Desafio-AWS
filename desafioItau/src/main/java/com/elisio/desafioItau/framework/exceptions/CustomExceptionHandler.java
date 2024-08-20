@@ -18,18 +18,11 @@ import java.util.Date;
 @Slf4j
 public class CustomExceptionHandler {
 
-    @ExceptionHandler({LivroException.class, HttpMessageNotReadableException.class, MethodArgumentNotValidException.class})
-    public ResponseEntity<?> handleLivrosException(Exception ex, WebRequest request) {
+    @ExceptionHandler({BookException.class, HttpMessageNotReadableException.class, MethodArgumentNotValidException.class})
+    public ResponseEntity<?> handleBookException(Exception ex, WebRequest request) {
         log.error(ex.getMessage());
         ErrosDetail errosDetail = new ErrosDetail(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errosDetail, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(ConnectException.class)
-    public ResponseEntity<?> handleConnectException(Exception ex, WebRequest request) {
-        log.error(ex.getMessage());
-        ErrosDetail errosDetail = new ErrosDetail(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errosDetail, HttpStatus.SERVICE_UNAVAILABLE);
     }
 
 }

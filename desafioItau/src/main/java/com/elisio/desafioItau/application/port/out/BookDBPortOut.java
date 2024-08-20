@@ -4,7 +4,7 @@ import com.elisio.desafioItau.domain.Book;
 
 import java.util.List;
 
-public interface LivroDBPortOut {
+public interface BookDBPortOut {
 
     List<Book> getAllBooks();
 
