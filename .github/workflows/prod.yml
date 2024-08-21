@@ -1,0 +1,13 @@
+name: Deploy Application BookItau
+
+on:
+  push:
+    branches: [developer]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3

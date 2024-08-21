@@ -24,8 +24,6 @@ spring:
         topic:
           book-topic:
             arn: ${AWS_ARN:arn:aws:sns:us-east-2:307946635270:book-topic}
-      end-point:
-        uri: https://sqs.us-east-2.amazonaws.com/307946635270/book-queue
 
 server:
   port: 8081
