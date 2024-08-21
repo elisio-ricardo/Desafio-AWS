@@ -16,17 +16,17 @@ spring:
   cloud:
     aws:
       credentials:
-        access-key: ${AWS_ACCESS_KEY:XXX}
-        secret-key: ${AWS_SECRET_KEY:XXXX}
+        access-key: ${AWS_ACCESS_KEY}
+        secret-key: ${AWS_SECRET_KEY}
       region:
-        static: ${AWS_REGION:us-east-2}
+        static: ${AWS_REGION}
       sns:
         topic:
           book-topic:
-            arn: ${AWS_ARN:arn:aws:sns:us-east-2:307946635270:book-topic}
+            arn: ${AWS_ARN}
 
 server:
-  port: 8081
+  port: 8080
 
 # JPA RDS Configuration
 # Uncomment and configure these lines if using AWS RDS
