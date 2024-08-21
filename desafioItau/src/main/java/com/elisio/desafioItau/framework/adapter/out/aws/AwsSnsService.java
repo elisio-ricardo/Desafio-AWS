@@ -21,7 +21,7 @@ public class AwsSnsService {
     public void publish(MessageDTO message) {
 
         log.info("Mensagem enviada para o topico " + bookTopic.getTopicArn() + " Com a mensagem " + message);
-        this.snsClient.publish(bookTopic.getTopicArn(), message.toString());
+        this.snsClient.publish(bookTopic.getTopicArn(), message.message());
     }
 
 

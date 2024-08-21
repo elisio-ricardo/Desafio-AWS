@@ -16,14 +16,16 @@ spring:
   cloud:
     aws:
       credentials:
-        access-key: ${AWS_ACCESS_KEY:XX}
-        secret-key: ${AWS_SECRET_KEY:XX}
+        access-key: ${AWS_ACCESS_KEY:XXX}
+        secret-key: ${AWS_SECRET_KEY:XXXX}
       region:
         static: ${AWS_REGION:us-east-2}
       sns:
         topic:
           book-topic:
-            arn: ${AWS_ARN:XX}
+            arn: ${AWS_ARN:arn:aws:sns:us-east-2:307946635270:book-topic}
+      end-point:
+        uri: https://sqs.us-east-2.amazonaws.com/307946635270/book-queue
 
 server:
   port: 8081

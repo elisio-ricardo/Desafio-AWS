@@ -54,7 +54,12 @@ public class BooksPortInImpl implements BooksPortIn {
         log.info("POST - Persisting book in BD");
         Book book = bookDbPortOut.saveBook(BookMapper.toBook(bookRequestDTO));
         log.info("Book saved");
-        this.awsSnsService.publish(new MessageDTO(book.toString()));
+
+        String operacao = ", \"operação\": \"save\"";
+
+        String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
+
+        this.awsSnsService.publish(new MessageDTO(mensagemModificada));
         log.info("SNS saveBook enviado");
 
         return BookMapper.toBookResponseDTO(book);
@@ -66,6 +71,10 @@ public class BooksPortInImpl implements BooksPortIn {
         Book book = bookDbPortOut.updateBook(id, BookMapper.toBook(bookRequestDTO));
         log.info("Book updated successfully");
 
+        String operacao = ", \"operação\": \"update\"";
+
+        String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
+
         this.awsSnsService.publish(new MessageDTO(book.toString()));
 
         log.info("SNS updateBook enviado");
@@ -75,15 +84,30 @@ public class BooksPortInImpl implements BooksPortIn {
 
     @Override
     public void deleteBook(Long id) {
+       var  book = bookDbPortOut.getBookById(id);
         log.info("DELETE - Deleting book");
         bookDbPortOut.deleteBook(id);
         log.info("Book deleted");
+//
+//        String mensagem = "Book with id {0} deleted";
+//        String mensagemFormatada = MessageFormat.format(mensagem, id);
+//
+//        log.info("SNS delete Book enviado" + mensagemFormatada);
 
-        String mensagem = "Book with id {0} deleted";
-        String mensagemFormatada = MessageFormat.format(mensagem, id);
+        String operacao = ", \"operação\": \"delete\"";
 
-        log.info("SNS delete Book enviado " + mensagemFormatada);
+        String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
 
-        this.awsSnsService.publish(new MessageDTO(mensagemFormatada));
+        this.awsSnsService.publish(new MessageDTO(mensagemModificada));
+    }
+
+
+    public static String adicionarOperacaoNaMensagem(String jsonString, String operacao) {
+        if (jsonString.endsWith("}")) {
+            String jsonSemFechamento = jsonString.substring(0, jsonString.length() - 1);
+            return jsonSemFechamento + operacao + "}";
+        } else {
+            return jsonString + operacao;
+        }
     }
 }

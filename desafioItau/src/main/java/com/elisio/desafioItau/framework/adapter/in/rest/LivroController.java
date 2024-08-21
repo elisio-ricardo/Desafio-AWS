@@ -5,7 +5,15 @@ import com.elisio.desafioItau.application.port.in.BooksPortIn;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookRequestDTO;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookResponseDTO;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
+import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -14,6 +22,7 @@ import java.net.URI;
 import java.util.List;
 
 
+@Slf4j
 @RestController
 @RequestMapping("/books")
 @Tag(name = "Books REST")
@@ -59,6 +68,8 @@ public class LivroController {
         booksPortIn.deleteBook(id);
         return ResponseEntity.noContent().build();
     }
+
+
 
 
 }
