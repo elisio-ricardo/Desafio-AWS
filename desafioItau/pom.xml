@@ -83,10 +83,17 @@
 			<version>2.0.2</version>
 		</dependency>
 
-<!--		<dependency>-->
+		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-starter</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+		<!--		<dependency>-->
 <!--			<groupId>org.flywaydb</groupId>-->
 <!--			<artifactId>flyway-mysql</artifactId>-->
 <!--		</dependency>-->
+
 	</dependencies>
 
 
