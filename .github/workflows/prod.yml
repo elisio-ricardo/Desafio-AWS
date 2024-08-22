@@ -26,3 +26,11 @@ jobs:
       - name: Push image docker
         run: docker push ricardocanuto/elisioricardo
 
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from docker Hub
+        run: docker pull ricardocanuto/elisioricardo:latest
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 --name desafioItau ricardocanuto/elisioricardo
