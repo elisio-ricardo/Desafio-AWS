@@ -41,4 +41,4 @@ jobs:
       - name: Remove docker container
         run: docker rm -f desafioItau
       - name: Run docker container
-        run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} -e DATABASE_PASSWORD='${{secrets.DATABASE_PASSWORD}}' --name desafioItau ricardocanuto/elisioricardo
+        run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} -e DATABASE_PASSWORD='${{secrets.DATABASE_PASSWORD}}' -e ARN_AWS='${{secrets.ARN_AWS}}' -e ACCESS_KEY_AWS='${{secrets.ACCESS_KEY_AWS}}' -e SECRET_KEY_AWS='${{secrets.SECRET_KEY_AWS}}' -e REGION_AWS='${{secrets.REGION_AWS}}' --name desafioItau ricardocanuto/elisioricardo
