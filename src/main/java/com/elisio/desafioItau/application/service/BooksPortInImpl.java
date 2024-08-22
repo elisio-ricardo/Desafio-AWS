@@ -74,6 +74,7 @@ public class BooksPortInImpl implements BooksPortIn {
 
         String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
 
+
         this.awsSnsService.publish(new MessageDTO(book.toString()));
 
         log.info("SNS updateBook enviado");

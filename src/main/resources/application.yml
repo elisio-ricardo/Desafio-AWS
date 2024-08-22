@@ -7,25 +7,23 @@ spring:
       ddl-auto: update
     show-sql: true
 #  jdbc:mysql://localhost:3306/db_desafio_itau
-
-
   datasource:
-    url: jdbc:mysql://localhost:3306/db_desafio_itau?createDatabaseIfNotExist=True&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
-    username: springuser
-    password: 123
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   cloud:
     aws:
       credentials:
-        access-key: ${ACCESS_KEY_AWS:AKIAUPMYMYADEKKFTGU2}
-        secret-key: ${SECRET_KEY_AWS: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}
+        access-key: ${ACCESS_KEY_AWS}
+        secret-key: ${SECRET_KEY_AWS}
       region:
-        static: ${REGION_AWS:us-east-2}
+        static: ${REGION_AWS}
       sns:
         topic:
           book-topic:
-            arn: ${AWS_ARN:arn:aws:sns:us-east-2:307946635270:book-topic}
+            arn: ${ARN_AWS}
 
 server:
   port: 8080
