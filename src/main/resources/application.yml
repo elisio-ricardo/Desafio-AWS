@@ -8,9 +8,9 @@ spring:
     show-sql: true
 #  jdbc:mysql://localhost:3306/db_desafio_itau
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: book-db.c5aiymg6ijqn.us-east-2.rds.amazonaws.com
+    username: admin
+    password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   cloud:
