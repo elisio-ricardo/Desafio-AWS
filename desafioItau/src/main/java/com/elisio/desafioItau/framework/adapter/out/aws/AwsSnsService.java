@@ -1,6 +1,7 @@
 package com.elisio.desafioItau.framework.adapter.out.aws;
 
 import com.amazonaws.services.sns.AmazonSNS;
+import com.amazonaws.services.sns.model.PublishResult;
 import com.amazonaws.services.sns.model.Topic;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,7 +22,8 @@ public class AwsSnsService {
     public void publish(MessageDTO message) {
 
         log.info("Mensagem enviada para o topico " + bookTopic.getTopicArn() + " Com a mensagem " + message);
-        this.snsClient.publish(bookTopic.getTopicArn(), message.message());
+        PublishResult publish = this.snsClient.publish(bookTopic.getTopicArn(), message.message());
+        
     }
 
 
