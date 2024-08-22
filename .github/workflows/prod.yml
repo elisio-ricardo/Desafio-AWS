@@ -38,5 +38,7 @@ jobs:
     steps:
       - name: Pull image from docker Hub
         run: docker pull ricardocanuto/elisioricardo:latest
+      - name: Remove docker container
+        run: docker rm -f desafioItau
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name desafioItau ricardocanuto/elisioricardo
