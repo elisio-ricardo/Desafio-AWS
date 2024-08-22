@@ -130,13 +130,10 @@
 			<version>20231013</version>
 		</dependency>
 
-
 		<!--		<dependency>-->
 <!--			<groupId>org.flywaydb</groupId>-->
 <!--			<artifactId>flyway-mysql</artifactId>-->
 <!--		</dependency>-->
-
-
 
 	</dependencies>
 
