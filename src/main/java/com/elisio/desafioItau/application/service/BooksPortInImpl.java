@@ -55,7 +55,7 @@ public class BooksPortInImpl implements BooksPortIn {
         Book book = bookDbPortOut.saveBook(BookMapper.toBook(bookRequestDTO));
         log.info("Book saved");
 
-        String operacao = ", \"operação\": \"save\"";
+        String operacao = ", \"operacao\": \"save\"";
         String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
 
         this.awsSnsService.publish(new MessageDTO(mensagemModificada));
@@ -70,7 +70,7 @@ public class BooksPortInImpl implements BooksPortIn {
         Book book = bookDbPortOut.updateBook(id, BookMapper.toBook(bookRequestDTO));
         log.info("Book updated successfully");
 
-        String operacao = ", \"operação\": \"update\"";
+        String operacao = ", \"operacao\": \"update\"";
 
         String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
 
@@ -93,7 +93,7 @@ public class BooksPortInImpl implements BooksPortIn {
 //
 //        log.info("SNS delete Book enviado" + mensagemFormatada);
 
-        String operacao = ", \"operação\": \"delete\"";
+        String operacao = ", \"operacao\": \"delete\"";
 
         String mensagemModificada = adicionarOperacaoNaMensagem(book.toString(), operacao);
 
