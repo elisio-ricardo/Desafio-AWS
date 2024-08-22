@@ -134,6 +134,11 @@
     <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-aws-messaging:2.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-aws-context:2.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-s3:1.11.792" level="project" />
+    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-kms:1.11.792" level="project" />
+    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-ec2:1.11.792" level="project" />
+    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-cloudformation:1.11.792" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-messaging:6.1.11" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.1.11" level="project" />
     <orderEntry type="library" name="Maven: software.amazon.awssdk:sqs:2.21.46" level="project" />
@@ -173,16 +178,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport-classes-epoll:4.1.111.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-resolver:4.1.111.Final" level="project" />
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-sqs:1.12.769" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-aws-parameter-store-config:2.2.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-aws-parameter-store-config:2.2.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-context:2.2.7.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:6.3.1" level="project" />
-    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-ssm:1.11.792" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-s3:1.11.792" level="project" />
-    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-kms:1.11.792" level="project" />
-    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-ec2:1.11.792" level="project" />
-    <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-cloudformation:1.11.792" level="project" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="ee9d9126-2bb9-462f-b11d-3c0ec82dc241" />
