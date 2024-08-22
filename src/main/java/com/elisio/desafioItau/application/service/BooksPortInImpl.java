@@ -87,11 +87,6 @@ public class BooksPortInImpl implements BooksPortIn {
         log.info("DELETE - Deleting book");
         bookDbPortOut.deleteBook(id);
         log.info("Book deleted");
-//
-//        String mensagem = "Book with id {0} deleted";
-//        String mensagemFormatada = MessageFormat.format(mensagem, id);
-//
-//        log.info("SNS delete Book enviado" + mensagemFormatada);
 
         String operacao = ", \"operacao\": \"delete\"";
 
