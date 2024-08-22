@@ -32,7 +32,6 @@ jobs:
       - name: Push image docker
         run: docker push ricardocanuto/elisioricardo
 
-
   deploy:
     needs: build
     runs-on: self-hosted
