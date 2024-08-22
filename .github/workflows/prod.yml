@@ -35,6 +35,7 @@ jobs:
   deploy:
     needs: build
     runs-on: self-hosted
+
     steps:
       - name: Pull image from docker Hub
         run: docker pull ricardocanuto/elisioricardo:latest
