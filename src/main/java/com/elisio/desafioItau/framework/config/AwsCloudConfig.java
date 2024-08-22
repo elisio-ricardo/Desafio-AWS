@@ -13,20 +13,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AwsCloudConfig {
 
-    //@Value("${spring.cloud.aws.credentials.access-key}")
-    @Value("${AWS_ACCESS_KEY}")
+    @Value("${spring.cloud.aws.credentials.access-key}")
+    //@Value("${ACCESS_KEY_AWS}")
     private String acesseKeyId;
 
-    //@Value("${spring.cloud.aws.credentials.secret-key}")
-    @Value("${AWS_SECRET_KEY}")
+    @Value("${spring.cloud.aws.credentials.secret-key}")
+    //@Value("${SECRET_KEY_AWS}")
     private String secretKey;
 
-    //@Value("${spring.cloud.aws.region.static}")
-    @Value("${AWS_REGION}")
+    @Value("${spring.cloud.aws.region.static}")
+    //@Value("${REGION_AWS}")
     private String region;
 
-    //@Value("${spring.cloud.aws.sns.topic.book-topic.arn}")
-    @Value("${AWS_ARN}")
+    @Value("${spring.cloud.aws.sns.topic.book-topic.arn}")
+    //@Value("${ARN_AWS}")
     private String bookTopicArn;
 
 
