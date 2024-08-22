@@ -27,12 +27,3 @@ spring:
 
 server:
   port: 8080
-
-# JPA RDS Configuration
-# Uncomment and configure these lines if using AWS RDS
-# spring:
-#   datasource:
-#     url: # put your AWS RDS URL here
-#     driverClassName: com.mysql.cj.jdbc.Driver
-#     username: ${dbUser}
-#     password: ${dbPass}
