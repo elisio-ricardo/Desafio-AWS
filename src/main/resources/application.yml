@@ -11,11 +11,11 @@ spring:
     show-sql: true
   # http://localhost:8080/h2-console
   datasource:
-    url: ${DATABASE_URL:jdbc:h2:mem:testdb}
-    username: ${DATABASE_USERNAME:sa}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
 
-    password: ${DATABASE_PASSWORD:password}
-    driver-class-name: ${com.mysql.cj.jdbc.Driver:org.h2.Driver}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: ${com.mysql.cj.jdbc.Driver}
 
   cloud:
     aws:
@@ -23,7 +23,7 @@ spring:
         access-key: ${ACCESS_KEY_AWS}
         secret-key: ${SECRET_KEY_AWS}
       region:
-        static: ${REGION_AWS:us-east-2}
+        static: ${REGION_AWS}
 
       sns:
         topic:
