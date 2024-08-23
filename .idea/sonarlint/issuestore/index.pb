@@ -3,8 +3,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 y
 Isrc/main/java/com/elisio/desafioItau/framework/config/AwsCloudConfig.java,3\b\3b588d0f9d4c86611d53d0d9ec05b0a708db9b62
-J
-.github/workflows/prod.yml,d\e\de9dd4439af601790c4dd1350bd7014e6c41f9dd
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 }

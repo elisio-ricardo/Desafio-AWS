@@ -162,7 +162,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.15.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.17.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.17.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:2.2.224" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:2.1.214" level="project" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="ee9d9126-2bb9-462f-b11d-3c0ec82dc241" />
