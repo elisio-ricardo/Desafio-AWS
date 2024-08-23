@@ -24,11 +24,8 @@ import java.util.stream.Collectors;
 public class BooksPortInImpl implements BooksPortIn {
 
     private final BookDbPortOutImpl bookDbPortOut;
-
     private final AwsSnsService awsSnsService;
-
     private final ObjectMapper mapper;
-
 
     public BooksPortInImpl(BookDbPortOutImpl bookDbPortOut, AwsSnsService awsSnsService, ObjectMapper mapper) {
         this.bookDbPortOut = bookDbPortOut;
@@ -42,7 +39,6 @@ public class BooksPortInImpl implements BooksPortIn {
         log.info("Requesting all books");
         List<Book> allBook = bookDbPortOut.getAllBooks();
         log.info("Transform books in DTO and Returning all books");
-
         return allBook.stream().map(BookMapper::toBookResponseDTO).collect(Collectors.toList());
     }
 
