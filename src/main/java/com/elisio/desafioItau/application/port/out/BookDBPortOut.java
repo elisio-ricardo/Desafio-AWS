@@ -1,6 +1,6 @@
 package com.elisio.desafioItau.application.port.out;
 
-import com.elisio.desafioItau.domain.entity.Book;
+import com.elisio.desafioItau.domain.entities.Book;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.elisio.desafioItau.framework.adapter.out.aws.dto;
 
-import com.elisio.desafioItau.domain.entity.Book;
+import com.elisio.desafioItau.domain.entities.Book;
 import com.elisio.desafioItau.domain.enums.OperacaoEnum;
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package com.elisio.desafioItau.framework.util.mapper;
 
-import com.elisio.desafioItau.domain.entity.Book;
+import com.elisio.desafioItau.domain.entities.Book;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookRequestDTO;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookResponseDTO;
 

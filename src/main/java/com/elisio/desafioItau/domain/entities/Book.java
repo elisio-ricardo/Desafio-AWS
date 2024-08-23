@@ -1,4 +1,4 @@
-package com.elisio.desafioItau.domain.entity;
+package com.elisio.desafioItau.domain.entities;
 
 
 import jakarta.persistence.*;

@@ -1,7 +1,7 @@
 package com.elisio.desafioItau.framework.adapter.out;
 
 import com.elisio.desafioItau.application.port.out.BookDBPortOut;
-import com.elisio.desafioItau.domain.entity.Book;
+import com.elisio.desafioItau.domain.entities.Book;
 import com.elisio.desafioItau.framework.adapter.out.persistence.BookRepository;
 import com.elisio.desafioItau.framework.exceptions.BookException;
 import org.springframework.stereotype.Component;

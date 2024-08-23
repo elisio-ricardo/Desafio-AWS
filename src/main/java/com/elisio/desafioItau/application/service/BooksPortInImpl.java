@@ -2,7 +2,7 @@ package com.elisio.desafioItau.application.service;
 
 
 import com.elisio.desafioItau.application.port.in.BooksPortIn;
-import com.elisio.desafioItau.domain.entity.Book;
+import com.elisio.desafioItau.domain.entities.Book;
 import com.elisio.desafioItau.domain.enums.OperacaoEnum;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookRequestDTO;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookResponseDTO;

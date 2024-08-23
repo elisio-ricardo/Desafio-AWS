@@ -1,6 +1,6 @@
 package com.elisio.desafioItau.framework.adapter.out.persistence;
 
-import com.elisio.desafioItau.domain.entity.Book;
+import com.elisio.desafioItau.domain.entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

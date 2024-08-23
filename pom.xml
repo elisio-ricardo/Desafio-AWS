@@ -140,7 +140,6 @@
 						<exclude>**/dtos/**</exclude>
 						<exclude>**/entities/**</exclude>
 						<exclude>**/config/**</exclude>
-						<exclude>com/elisio/desafioItau/config/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>
@@ -149,7 +148,6 @@
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
-					<!-- attached to Maven test phase -->
 					<execution>
 						<id>report</id>
 						<phase>test</phase>
