@@ -2,7 +2,7 @@
 
 # Resumo
 
- ## Este repositorio consiste em uma api com os serviços de CRUD integrada ao git actions e aws.
+ ## Este repositorio consiste em uma api com os serviços de CRUD integrada ao DockerHub, Git Actions e AWS.
  
  A api esta armazenada no AWS EC2(book-itau / mas pode ser testada localmente),
  onde é persistido os dados no AWS RDS(book-db).
