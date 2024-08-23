@@ -33,6 +33,15 @@ Para utilização é necessario:
 - Criar o lambda em python(codigo esta no arquivo na raiz do projeto) e ativar a trigger  com o SQS
 - Criar o S3(book-atualizacao-bd-log)
 
+# EC2
+É necessario criar uma maquina EC2 e executar o runer do GitHub para ele poder ouvir a pipe do Git Actions.
+- Após a criação da maquina virtual siga as instruções do link abaixo para instalação do runner
+ https://github.com/elisio-ricardo/Desafio-Itau/actions/runners
+ quando criar uma new runner é apresentado o script para executar dentro da maquina ec2
+
+# Observação: é necessario inserir os valores nas variaveis de ambiente, no yml caso rode localmente ou no git secrets caso utilize a pipe 
+
+
 # SWAGGER
 
 O documento se encontra no http://localhost:8080/swagger-ui.html, após a execução da api localmente
