@@ -95,7 +95,6 @@ public class BooksPortInImpl implements BooksPortIn {
         log.info("DELETE - Deleting book");
         bookDbPortOut.deleteBook(id);
         log.info("Book deleted");
-
         BookResponseSNSDTO bookSNS = new BookResponseSNSDTO(book, OperacaoEnum.DELETE);
         String jsonString = null;
 
