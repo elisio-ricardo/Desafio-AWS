@@ -2,7 +2,8 @@
 
 # Resumo
 
- Este repositorio consiste em uma api com os serviços de CRUD integrada ao git actions e aws
+ Este repositorio consiste em uma api com os serviços de CRUD integrada ao git actions e aws,
+ 
  A api esta armazenada no AWS EC2(book-itau / mas pode ser testada localmente)
  Onde é persistido os dados no AWS RDS(book-db)
  Após a manipulação do banco de dados com as operações SAVE, UPDATE E DELETE 
