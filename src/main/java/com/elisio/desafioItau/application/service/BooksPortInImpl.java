@@ -27,12 +27,13 @@ public class BooksPortInImpl implements BooksPortIn {
 
     private final AwsSnsService awsSnsService;
 
-    ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
 
 
-    public BooksPortInImpl(BookDbPortOutImpl bookDbPortOut, AwsSnsService awsSnsService) {
+    public BooksPortInImpl(BookDbPortOutImpl bookDbPortOut, AwsSnsService awsSnsService, ObjectMapper mapper) {
         this.bookDbPortOut = bookDbPortOut;
         this.awsSnsService = awsSnsService;
+        this.mapper = mapper;
     }
 
 
@@ -59,20 +60,16 @@ public class BooksPortInImpl implements BooksPortIn {
         Book book = bookDbPortOut.saveBook(BookMapper.toBook(bookRequestDTO));
         log.info("Book saved");
         BookResponseSNSDTO bookSNS = new BookResponseSNSDTO(book, OperacaoEnum.SAVE);
-
         String jsonString = null;
 
         try {
             jsonString = mapper.writeValueAsString(bookSNS);
             this.awsSnsService.publish(jsonString);
-
         } catch (JsonProcessingException e) {
             throw new SendAwsSNSException("Erro ao publicar ao SNS a mensagem");
         }
 
-
         log.info("SNS saveBook enviado mensagem " + jsonString);
-
         return BookMapper.toBookResponseDTO(book);
     }
 
@@ -83,20 +80,16 @@ public class BooksPortInImpl implements BooksPortIn {
         log.info("Book updated successfully");
 
         BookResponseSNSDTO bookSNS = new BookResponseSNSDTO(book, OperacaoEnum.UPDATE);
-
         String jsonString = null;
 
         try {
             jsonString = mapper.writeValueAsString(bookSNS);
-
             this.awsSnsService.publish(jsonString);
-
         } catch (JsonProcessingException e) {
             throw new SendAwsSNSException("Erro ao publicar ao SNS a mensagem");
         }
 
         log.info("SNS updateBook enviado com a mensagem " + jsonString);
-
         return BookMapper.toBookResponseDTO(book);
     }
 
@@ -108,13 +101,11 @@ public class BooksPortInImpl implements BooksPortIn {
         log.info("Book deleted");
 
         BookResponseSNSDTO bookSNS = new BookResponseSNSDTO(book, OperacaoEnum.DELETE);
-
         String jsonString = null;
 
         try {
             jsonString = mapper.writeValueAsString(bookSNS);
             this.awsSnsService.publish(jsonString);
-
         } catch (JsonProcessingException e) {
             throw new SendAwsSNSException("Erro ao publicar ao SNS a mensagem");
         }
