@@ -1,9 +1,10 @@
 package com.elisio.desafioItau.application.service;
 
-import com.elisio.desafioItau.domain.Book;
+import com.elisio.desafioItau.domain.entity.Book;
 import com.elisio.desafioItau.factory.BookFactory;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookRequestDTO;
 import com.elisio.desafioItau.framework.adapter.out.BookDbPortOutImpl;
+import com.elisio.desafioItau.framework.adapter.out.aws.AwsSnsService;
 import com.elisio.desafioItau.framework.exceptions.BookException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,9 @@ class BooksPortInImplTest {
 
     @Mock
     private BookDbPortOutImpl bookDbPortOut;
+
+    @Mock
+    private  AwsSnsService awsSnsService;
 
     @InjectMocks
     private BooksPortInImpl booksPortIn;
@@ -134,8 +138,16 @@ class BooksPortInImplTest {
     @Test
     @DisplayName("confirm that the book has been Deleted")
     void deleteBook() {
-        booksPortIn.deleteBook(1L);
+        Book book = Book.builder()
+                .autor("autor1")
+                .titulo("tituli1")
+                .preco(1.0)
+                .qtdPaginas(1)
+                .build();
 
+        when(bookDbPortOut.getBookById(1L)).thenReturn(book);
+
+        booksPortIn.deleteBook(1L);
         verify(bookDbPortOut, Mockito.times(1)).deleteBook(1L);
     }
 

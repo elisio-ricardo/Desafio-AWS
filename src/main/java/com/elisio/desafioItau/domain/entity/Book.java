@@ -1,4 +1,4 @@
-package com.elisio.desafioItau.domain;
+package com.elisio.desafioItau.domain.entity;
 
 
 import jakarta.persistence.*;
@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.json.JSONObject;
 
 
 @Data
@@ -16,7 +15,7 @@ import org.json.JSONObject;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "veiculo")
+@Table(name = "book")
 public class Book {
 
     @Id
@@ -35,14 +34,4 @@ public class Book {
     @NotNull
     private Double preco;
 
-    @Override
-    public String toString(){
-        JSONObject json = new JSONObject();
-        json.put("titulo", this.titulo);
-        json.put("autor", this.autor);
-        json.put("qtdPaginas", this.qtdPaginas);
-        json.put("preco", this.preco);
-
-        return json.toString();
-    }
 }

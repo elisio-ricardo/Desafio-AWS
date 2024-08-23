@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: desafioItau
@@ -6,7 +9,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-#  jdbc:mysql://localhost:3306/db_desafio_itau
+  #  jdbc:mysql://localhost:3306/db_desafio_itau
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
@@ -25,5 +28,4 @@ spring:
           book-topic:
             arn: ${ARN_AWS}
 
-server:
-  port: 8080
+

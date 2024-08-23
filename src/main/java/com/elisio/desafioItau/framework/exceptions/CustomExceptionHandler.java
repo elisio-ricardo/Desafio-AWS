@@ -1,6 +1,7 @@
 package com.elisio.desafioItau.framework.exceptions;
 
 
+import com.amazonaws.services.sns.model.AmazonSNSException;
 import com.elisio.desafioItau.framework.adapter.in.dtos.ErrosDetail;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ import java.util.Date;
 @Slf4j
 public class CustomExceptionHandler {
 
-    @ExceptionHandler({BookException.class, HttpMessageNotReadableException.class, MethodArgumentNotValidException.class})
+    @ExceptionHandler({AmazonSNSException.class, BookException.class, SendAwsSNSException.class, HttpMessageNotReadableException.class, MethodArgumentNotValidException.class})
     public ResponseEntity<?> handleBookException(Exception ex, WebRequest request) {
         log.error(ex.getMessage());
         ErrosDetail errosDetail = new ErrosDetail(new Date(), ex.getMessage(), request.getDescription(false));

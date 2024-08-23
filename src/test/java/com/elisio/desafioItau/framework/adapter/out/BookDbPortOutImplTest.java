@@ -1,6 +1,6 @@
 package com.elisio.desafioItau.framework.adapter.out;
 
-import com.elisio.desafioItau.domain.Book;
+import com.elisio.desafioItau.domain.entity.Book;
 import com.elisio.desafioItau.factory.BookFactory;
 import com.elisio.desafioItau.framework.adapter.in.dtos.BookRequestDTO;
 import com.elisio.desafioItau.framework.adapter.out.persistence.BookRepository;
