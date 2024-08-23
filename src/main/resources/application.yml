@@ -23,6 +23,7 @@ spring:
         secret-key: ${SECRET_KEY_AWS}
       region:
         static: ${REGION_AWS:us-east-2}
+
       sns:
         topic:
           book-topic:
