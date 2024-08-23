@@ -4,8 +4,8 @@
 
  ## Este repositorio consiste em uma api com os serviços de CRUD, integrada ao DockerHub, Git Actions e AWS.
  
- A api esta armazenada no AWS EC2(book-itau / mas pode ser testada localmente),
- onde é persistido os dados no AWS RDS(book-db).
+ A api pode ser armazenada no AWS EC2(book-itau) ou pode ser testada localmente,
+ onde é persistido os dados no AWS RDS(book-db) ou em memoria H2.
  Após a manipulação do banco de dados com as operações SAVE, UPDATE E DELETE 
  é automaticamente enviado uma notificação para um topico SNS(book-topic) pela api via sns publish,
  onde existe uma fila SQS(book-queue) escutando este topico. 
