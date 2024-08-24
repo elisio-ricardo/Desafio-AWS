@@ -1,0 +1,103 @@
+import json
+import logging
+import boto3
+from datetime import datetime
+
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+
+s3_client = boto3.client('s3')
+
+S3_BUCKET_NAME = 'book-atualizacao-bd-log'
+
+def lambda_handler(event, context):
+    logger.info("Iniciando o processamento das mensagens do SQS")
+  
+    date_today = datetime.now().strftime('%Y-%m-%d')
+   
+    logs_by_operation = {
+        'save': [],
+        'delete': [],
+        'update': []
+    }
+    
+    try:
+        # Loop através das mensagens do SQS
+        for record in event['Records']:
+            try:
+                message_body = json.loads(record['body'])
+                
+                logger.info(f"Mensagem recebida: {message_body}")
+               
+                operation_type = message_body.get('operacao').lower()
+                book_titulo = message_body.get('titulo')
+                book_autor = message_body.get('autor')
+                book_qtd_paginas = message_body.get('qtdPaginas')
+                book_preco = message_body.get('preco')
+                db_timestamp = message_body.get('timestamp', datetime.now().strftime('%Y-%m-%dT%H:%M'))
+              
+                log_entry = {
+                    'operation_type': operation_type,
+                    'titulo': book_titulo,
+                    'autor': book_autor,
+                    'qtdPaginas': book_qtd_paginas,
+                    'preco': book_preco,
+                    'timestamp': db_timestamp
+                }
+
+                # Adicionar o log ao tipo de operação correspondente
+                if operation_type in logs_by_operation:
+                    logs_by_operation[operation_type].append(log_entry)
+                else:
+                    logger.warning(f"Operação desconhecida: {operation_type}")
+
+                logger.info(f"Log processado com sucesso para a operação: {operation_type}")
+
+            except Exception as e:
+                logger.error(f"Erro ao processar a mensagem: {e}")
+                return {
+                    'statusCode': 500,
+                    'body': json.dumps(f"Erro ao processar a mensagem: {e}")
+                }
+
+        # Para cada tipo de operação, salvar os logs correspondentes em arquivos distintos no S3
+        for operation_type, logs in logs_by_operation.items():
+            if logs:
+                log_file_name = f"db_logs/book/{operation_type}_log_{date_today}.json"
+
+                try:
+                    # Tenta baixar o arquivo existente do S3
+                    response = s3_client.get_object(Bucket=S3_BUCKET_NAME, Key=log_file_name)
+                    existing_logs = json.loads(response['Body'].read().decode('utf-8'))
+                    logs.extend(existing_logs)  # Adiciona os logs existentes à lista
+                    logger.info(f"Logs existentes carregados do S3 para {operation_type}: {log_file_name}")
+                except s3_client.exceptions.NoSuchKey:
+                    # Se o arquivo não existir, continua com a lista de logs vazia
+                    logger.info(f"Nenhum log existente encontrado para {operation_type}, criando novo arquivo: {log_file_name}")
+
+                # Converter a lista de logs para JSON
+                log_data = json.dumps(logs, indent=4)
+
+              
+                s3_client.put_object(
+                    Bucket=S3_BUCKET_NAME,
+                    Key=log_file_name,
+                    Body=log_data
+                )
+                
+                logger.info(f"Logs de {operation_type} enviados para o S3 com sucesso: {log_file_name}")
+
+        return {
+            'statusCode': 200,
+            'body': json.dumps('Logs enviados com sucesso para o S3')
+        }
+
+    except Exception as e:
+        # Captura qualquer erro não tratado anteriormente e retorna um status de erro
+        logger.error(f"Erro geral no lambda_handler: {e}")
+        return {
+            'statusCode': 500,
+            'body': json.dumps(f"Erro no lambda_handler: {e}")
+        }

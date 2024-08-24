@@ -137,9 +137,10 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<configuration>
 					<excludes>
-						<exclude>**/DesafioApplication.*</exclude>
+						<exclude>**/DesafioItauApplication.*</exclude>
 						<exclude>**/dtos/**</exclude>
 						<exclude>**/entities/**</exclude>
+						<exclude>**/config/**</exclude>
 						<exclude>**/config/**</exclude>
 					</excludes>
 				</configuration>

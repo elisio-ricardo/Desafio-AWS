@@ -33,3 +33,10 @@ Lsrc/main/java/com/elisio/desafioItau/framework/exceptions/BookException.java,7
 Rsrc/main/java/com/elisio/desafioItau/framework/exceptions/SendAwsSNSException.java,4\a\4a4301037c1d815eb05a10f17c0e29d62e6c5f3c
 …
 Usrc/main/java/com/elisio/desafioItau/framework/exceptions/CustomExceptionHandler.java,f\a\fa32ad7632ca0a45efe2ad1f481103e38aef3586
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+J
+.github/workflows/prod.yml,d\e\de9dd4439af601790c4dd1350bd7014e6c41f9dd
