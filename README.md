@@ -50,7 +50,7 @@ O documento se encontra no http://localhost:8080/swagger-ui.html, após a execu�
 
 ![image](https://github.com/user-attachments/assets/528016b2-acb0-4198-8ff0-fd82ef577153)
 
-# Diagrama de Sequencia 
+# Diagrama de Sequencia operação Post /book
 
 ![image](https://github.com/user-attachments/assets/2853fe42-be4d-4cbf-99e4-4936c53ff186)
 
