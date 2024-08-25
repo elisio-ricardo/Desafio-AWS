@@ -5,19 +5,19 @@
  ## Este repositorio consiste em uma api com os serviços de CRUD, integrada ao DockerHub, Git Actions e AWS.
  
  A api pode ser armazenada no AWS EC2(book-itau) ou pode ser testada localmente,
- onde é persistido os dados no AWS RDS(book-db) ou em memoria H2.
+ onde é persistido os dados no AWS RDS(book-db) ou localmente em um BD que desejar(precisa isnserir as configs no .yml).
  Após a manipulação do banco de dados com as operações SAVE, UPDATE E DELETE 
- é automaticamente enviado uma notificação para um topico SNS(book-topic) pela api via sns publish,
+ é automaticamente enviado uma notificação pela api via sns publish para um topico SNS(book-topic) ,
  onde existe uma fila SQS(book-queue) escutando este topico. 
- Quando uma mensagem chegar na fila o lambda(bookAtualizaDB/Python) que esta escutando
- manipula os dados e envia o log da operação executada pela api para o S3,
- Onde é criado um arquivo para cada operação realizado durante este dia.
- A cada dia é gerado um novo log de cada operação.
+ Quando uma mensagem chegar na fila o lambda(bookAtualizaDB/Python) que esta escutando e
+ manipula os dados e envia o log da operação executada pela api para o armazenamento no bucket S3(book-atualizacao-bd-log),
+ onde é criado um arquivo de Log com todas interações no BD realizado durante este dia para cada operação .
+ A cada dia é gerado um novo arquivo de log de cada operação.
 
 
  # Git actions
 
-Foi criado uma pipeline no Git actions, onde ela é ativado após um push no repositorio,
+Foi criado uma pipeline no Git actions, onde ela é ativado após um push no repositorio main,
 esta pipeline consite em:
 - Fazer o package da api
 - Enviar para o DockerHub
@@ -30,11 +30,11 @@ Para utilização é necessario:
 - criar o SNS(book-topic)
 - Criar o SQS é fazer a assinatura com o SNS
 - Criar o RDS(book-db)
-- Criar o lambda em python(codigo esta no arquivo na raiz do projeto) e ativar a trigger  com o SQS
+- Criar o lambda(bookAtualizaDB) em python(codigo esta no arquivo na raiz do projeto) e ativar a trigger  com o SQS
 - Criar o S3(book-atualizacao-bd-log)
 
 # EC2
-É necessario criar uma maquina EC2 e executar o runer do GitHub para ele poder ouvir a pipe do Git Actions.
+É necessario criar uma maquina EC2 e executar o runer do GitHub e vincular o ec2 ao repositorio para ele poder ouvir a pipe do Git Actions.
 - Após a criação da maquina virtual siga as instruções do link abaixo para instalação do runner
  https://github.com/elisio-ricardo/Desafio-Itau/actions/runners
  quando criar uma new runner é apresentado o script para executar dentro da maquina ec2
