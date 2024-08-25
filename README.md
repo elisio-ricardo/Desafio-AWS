@@ -27,6 +27,7 @@ suas variaveis de ambiente estão salvas no git secret manager
 
 # AWS 
 Para utilização é necessario:
+- Criar um api Gatway configurar e vincular a EC2
 - criar o SNS(book-topic)
 - Criar o SQS é fazer a assinatura com o SNS
 - Criar o RDS(book-db)
