@@ -40,3 +40,11 @@ B
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 J
 .github/workflows/prod.yml,d\e\de9dd4439af601790c4dd1350bd7014e6c41f9dd
+y
+Isrc/main/java/com/elisio/desafioItau/application/port/in/BooksPortIn.java,1\9\19ce18c27cef6b9f1c6886aa2540dab6c380fbbe
+‚
+Rsrc/main/java/com/elisio/desafioItau/framework/adapter/in/rest/BookController.java,d\c\dc42290ea92ba36d055edb06e30fe3c875e5ba8b
+Š
+Zsrc/main/java/com/elisio/desafioItau/framework/adapter/out/persistence/BookRepository.java,3\a\3a99cabc494507b61a83a135c4eaae700b379e81
+n
+>src/main/java/com/elisio/desafioItau/domain/entities/Book.java,a\6\a600b7b6a6d5498153796920a0b0b096706839d4
