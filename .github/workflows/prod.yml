@@ -1,4 +1,4 @@
-name: Deploy Application BookItau
+name: Deploy Application BookAWS
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
         run: docker pull ricardocanuto/elisioricardo:latest
 
       - name: Remove docker container
-        run: docker rm -f desafioItau
+        run: docker rm -f desafioAWS
 
       - name: Run docker container
         run: docker run -d -p 8080:8080 -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' -e DATABASE_URL='${{ secrets.DATABASE_URL }}'  -e ARN_AWS='${{secrets.ARN_AWS}}' -e ACCESS_KEY_AWS='${{ secrets.ACCESS_KEY_AWS }}' -e SECRET_KEY_AWS='${{ secrets.SECRET_KEY_AWS }}' -e REGION_AWS='${{ secrets.REGION_AWS }}' --name desafioItau ricardocanuto/elisioricardo
