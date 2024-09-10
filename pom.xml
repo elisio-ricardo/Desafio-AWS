@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.elisio</groupId>
-	<artifactId>desafioItau</artifactId>
+	<artifactId>desafioAWS</artifactId>
 	<version>1.0.0</version>
-	<name>desafioItau</name>
-	<description>Desafio itau</description>
+	<name>desafioAWS</name>
+	<description>Desafio AWS</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -140,7 +140,6 @@
 						<exclude>**/DesafioItauApplication.*</exclude>
 						<exclude>**/dtos/**</exclude>
 						<exclude>**/entities/**</exclude>
-						<exclude>**/config/**</exclude>
 						<exclude>**/config/**</exclude>
 					</excludes>
 				</configuration>

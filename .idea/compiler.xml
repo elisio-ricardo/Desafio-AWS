@@ -6,17 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Desafio-Itau" />
+        <module name="Desafio-AWS" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Desafio-Itau" target="17" />
+      <module name="Desafio-AWS" target="17" />
       <module name="desafioItau" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Desafio-Itau" options="-parameters" />
+      <module name="Desafio-AWS" options="-parameters" />
       <module name="desafioItau" options="-parameters" />
     </option>
   </component>

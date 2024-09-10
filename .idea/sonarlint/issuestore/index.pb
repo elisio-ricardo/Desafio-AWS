@@ -48,3 +48,7 @@ Rsrc/main/java/com/elisio/desafioItau/framework/adapter/in/rest/BookController.j
 Zsrc/main/java/com/elisio/desafioItau/framework/adapter/out/persistence/BookRepository.java,3\a\3a99cabc494507b61a83a135c4eaae700b379e81
 n
 >src/main/java/com/elisio/desafioItau/domain/entities/Book.java,a\6\a600b7b6a6d5498153796920a0b0b096706839d4
+
+Osrc/main/java/com/elisio/desafioItau/framework/adapter/in/dtos/ErrosDetail.java,5\3\531ae144bcc0e76df78cb2af4c9ad5e4aa39deb1
+m
+=src/test/java/com/elisio/desafioItau/factory/BookFactory.java,6\e\6e6210f421a8465ee4a86ac795733bce61416bde

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: desafioItau
+    name: desafioAWS
 
   jpa:
     hibernate:

@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class DesafioItauApplication {
+public class DesafioAWSApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DesafioItauApplication.class, args);
+		SpringApplication.run(DesafioAWSApplication.class, args);
 	}
 
 }
